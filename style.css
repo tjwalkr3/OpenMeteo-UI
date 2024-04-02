@@ -1,0 +1,47 @@
+:root {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+
+    /* main color scheme */
+    /* https://coolors.co/222831-9bdbdf-e6e6e6-31363f */
+    --background: #222831;
+    --highlights: #9bdbdf;
+    --foreground: #e6e6e6;
+    --text: #31363f;
+
+    /* special colors */
+    --error: #c93333;
+    --draggedOver: #4d5c70;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+}
+
+.header {
+    font-size: 2.5em;
+    font-weight: 700;
+    text-align: center;
+    color: var(--highlights);
+    position: fixed; /* keeps class schedules text fixed at top center while scrolling */
+    background-color: var(--background);
+    border-bottom: 2px solid var(--highlights);
+    width: 100%;
+    top: 0;
+}
+
+.weatherContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.weatherCard {
+    box-sizing: border-box;
+    padding: 1em;
+    color: var(--text);
+    background-color: var(--foreground);
+    font-size: 1em;
+}
