@@ -32,7 +32,7 @@ body, html {
     top: 0;
 }
 
-.weatherContainer {
+.homeContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -44,4 +44,10 @@ body, html {
     color: var(--text);
     background-color: var(--foreground);
     font-size: 1em;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5em;
+    }
 }
