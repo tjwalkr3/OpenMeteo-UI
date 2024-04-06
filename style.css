@@ -6,12 +6,12 @@
     /* https://coolors.co/222831-9bdbdf-e6e6e6-31363f */
     --background: #222831;
     --highlights: #9bdbdf;
-    --foreground: #e6e6e6;
-    --text: #31363f;
+    --foreground: #eeeeee;
+    --text: #282c33;
 
     /* special colors */
     --error: #c93333;
-    --draggedOver: #4d5c70;
+    --hoveredForeground: #bebebe;
 }
 
 body, html {
@@ -25,29 +25,40 @@ body, html {
     font-weight: 700;
     text-align: center;
     color: var(--highlights);
-    position: fixed; /* keeps class schedules text fixed at top center while scrolling */
     background-color: var(--background);
     border-bottom: 2px solid var(--highlights);
     width: 100%;
+    margin: 0 0 2em 0;
     top: 0;
 }
 
-.homeContainer {
+#homeContainer {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .weatherCard {
     box-sizing: border-box;
+    max-width: 20em;
+    display: inline-block;
     padding: 1em;
     color: var(--text);
     background-color: var(--foreground);
     font-size: 1em;
+    transition: 0.3s;
+    border-radius: 1em;
+    border: 3px solid transparent;
 
     img {
         width: 100%;
         height: auto;
-        border-radius: 0.5em;
     }
+}
+
+.weatherCard:hover {
+    background-color: var(--hoveredForeground);
+    border: 3px solid var(--text);
 }

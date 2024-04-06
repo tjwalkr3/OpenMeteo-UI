@@ -6,17 +6,17 @@ function RenderHome() {
 
     homeLayout.forEach((cardData) => {
         const currentCard = RenderCard(cardData);
+        console.log(homeContainer);
         homeContainer.appendChild(currentCard);
     });
 }
 
 function RenderCard(cardData) {
-    const card = document.createElement("a");
-    card.setAttribute("href", cardData.link);
-
     const cardContainer = document.createElement("div");
-    cardElement.classList.add("weatherCard");
-    card.appendChild(cardContainer);
+    cardContainer.classList.add("weatherCard");
+    cardContainer.addEventListener("click", (event) => {
+        window.location = cardData.link; // tack parameters onto the end of this string from location picker ?location=place
+    });
 
     const image = document.createElement("img");
     image.setAttribute("src", cardData.image);
@@ -26,7 +26,7 @@ function RenderCard(cardData) {
     title.innerText = cardData.title;
     cardContainer.appendChild(title);
 
-    return card;
+    return cardContainer;
 }
 
 RenderHome();

@@ -2,17 +2,17 @@
 export const homeLayout = [
     {
         title: "Daily Forecast",
-        image: "./images/example.png",
+        image: "./images/one-day.png",
         link: "./forecasts/"
     },
     {
         title: "Weekly Forecast",
-        image: "./images/example.png",
+        image: "./images/one-week.png",
         link: "./forecasts/"
     },
     {
         title: "Next Two Weeks",
-        image: "./images/example.png",
+        image: "./images/two-weeks.png",
         link: "./forecasts/"
     }
 ];
