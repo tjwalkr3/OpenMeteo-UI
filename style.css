@@ -36,7 +36,9 @@ body, html {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    column-gap: 10%;
+    row-gap: 2em;
     align-items: center;
 }
 
