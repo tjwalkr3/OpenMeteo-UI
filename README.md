@@ -5,10 +5,10 @@
 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am also going to implement either a location picker or a list of favorite locations.  
 
 ## April 6 - Week 1
-- [ ] Create base html on the homepage, and the shared layout for the granularity pages. 
+- [x] Create base html on the homepage, and the shared layout for the granularity pages. 
 - [ ] Create form
-- [ ] Add images, lists, figures
-- [ ] Create css flex layout with transitions, color, margin, padding, etc.
+- [x] Add images, lists, figures
+- [x] Create css flex layout with transitions, color, margin, padding, etc.
 
 ## April 13 - Week 2
 - [ ] Get service section working to get weather data using JS. 
