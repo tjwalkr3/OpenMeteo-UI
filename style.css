@@ -12,12 +12,17 @@
     /* special colors */
     --error: #c93333;
     --hoveredForeground: #bebebe;
+    --hoveredHighlights: #87bcc0;
 }
 
 body, html {
     margin: 0;
     padding: 0;
     background-color: var(--background);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .header {
@@ -63,4 +68,87 @@ body, html {
 .weatherCard:hover {
     background-color: var(--hoveredForeground);
     border: 3px solid var(--text);
+}
+
+/* button to open location search overlay */
+#addLocation {
+    background: var(--foreground);
+    color: var(--text);
+    border: none;
+    padding: 0.5em 0.75em;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+#addLocation:hover {
+    background: var(--hoveredForeground);
+    border: 3px solid var(--text);
+}
+
+
+/* css for search overlay */
+#locationSearchOverlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+#locationSearchOverlay input[type=text] {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: var(--foreground);
+    border-bottom-left-radius:1em;
+    border-top-left-radius:1em;
+}
+
+#locationSearchOverlay input[type=text]:hover {
+    background: var(--hoveredForeground);
+}
+
+#locationSearchOverlay button {
+    float: left;
+    width: 20%;
+    padding: 15px;
+    background: var(--highlights);
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    border-bottom-right-radius:1em;
+    border-top-right-radius:1em;
+}
+
+#locationSearchOverlay button:hover {
+    background: var(--hoveredHighlights);
+}
+
+.overlayContainer {
+    position: relative;
+    top: 25%;
+    width: 80%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+    max-width: 40em;
+}
+
+#closeOverlay {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+}
+
+#closeOverlay:hover {
+    color: #ccc;
 }
