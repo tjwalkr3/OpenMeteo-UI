@@ -11,6 +11,7 @@
 
     /* special colors */
     --error: #c93333;
+    --hoveredError: #ee3c3c;
     --hoveredForeground: #bebebe;
     --hoveredHighlights: #87bcc0;
 }
@@ -71,20 +72,20 @@ body, html {
 }
 
 /* button to open location search overlay */
-#addLocation {
+#openOverlay {
     background: var(--foreground);
     color: var(--text);
     border: none;
     padding: 0.5em 0.75em;
-    font-size: 1.5em;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 0.5em;
     cursor: pointer;
 }
 
-#addLocation:hover {
+#openOverlay:hover {
     background: var(--hoveredForeground);
-    border: 3px solid var(--text);
 }
-
 
 /* css for search overlay */
 #locationSearchOverlay {
@@ -146,9 +147,47 @@ body, html {
     right: 45px;
     font-size: 60px;
     cursor: pointer;
-    color: white;
+    color: var(--error);
 }
 
 #closeOverlay:hover {
-    color: #ccc;
+    color: var(--hoveredError);
+}
+
+.errorText {
+    color: var(--error);
+    font-weight: 700;
+}
+
+#searchResults {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    list-style-type: none;
+    list-style-position:inside;
+    background-color: var(--foreground);
+    border-radius: 0.5em;
+    justify-content: left;
+    max-height: 30em;;
+    overflow-y: scroll;
+}
+
+.searchItem {
+    font-size: 1.2em;
+    border-radius: 0.5em;
+    text-align: left;
+    padding: 0.3em 1em;
+}
+
+.searchItem:hover {
+    background-color: var(--hoveredForeground);
+}
+
+.scrollProtect {
+    background-color: transparent;
+    overflow: hidden;
+    width: 100%;
+    height: min-content;
+    margin-right: 1em;
+    border-radius: 0.5em;
 }

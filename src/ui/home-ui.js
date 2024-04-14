@@ -6,7 +6,6 @@ function RenderHome() {
 
     homeLayout.forEach((cardData) => {
         const currentCard = RenderCard(cardData);
-        console.log(homeContainer);
         homeContainer.appendChild(currentCard);
     });
 }

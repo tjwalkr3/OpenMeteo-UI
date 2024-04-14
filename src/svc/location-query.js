@@ -1,8 +1,8 @@
-export async function GetCoordinatesFromZipcode(zipcode) 
+export async function SearchLocation(locationString, numOfResults) 
 {
     var locationResults = [];
     
-    await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${zipcode}&count=1&language=en&format=json`)
+    await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${locationString}&count=${numOfResults}&language=en&format=json`)
         .then(response => {
             if (response.status < 200 || response.status >= 300) {
                 throw new Error("Invalid response, server error!");
@@ -11,16 +11,18 @@ export async function GetCoordinatesFromZipcode(zipcode)
         })
         .then((responseData) => {
             if (responseData.results !== undefined && responseData.results.length > 0) {
-                responseData.results.foreach((result) => {
-                    if (result.country_id === "6252001") { // Only accept locations in the USA
+                responseData.results.forEach((result) => {
+                    console.log(result);
+                    if (result.country_code === "US") { // Only accept locations in the USA
                         const locationResult = {
+                            id: result.id,
                             latitude: result.latitude,
                             longitude: result.longitude,
                             elevation: result.elevation,
-                            readableName: `${result.admin3}, ${result.admin1}`
+                            readableName: `${result.name}, ${result.admin1}`
                         };
-        
-                        locationResults.add(locationResult);
+                        console.log(locationResult);
+                        locationResults.push(locationResult);
                     }
                 });
             }
@@ -32,6 +34,6 @@ export async function GetCoordinatesFromZipcode(zipcode)
             console.log(exmsg);
         });
         
-    console.log(coordinateResults);
-    return locationResult;
+    console.log(locationResults);
+    return locationResults;
 }
