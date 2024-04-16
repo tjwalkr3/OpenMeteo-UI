@@ -1,16 +1,32 @@
 // UI logic for rendering data from OpenMeteo API requests
-import { homeLayout } from "./home-cards.js";
+const homeLayout = [
+    {
+        title: "Daily Forecast",
+        image: "./images/one-day.png",
+        link: "./forecasts/dailyForecast.html"
+    },
+    {
+        title: "Weekly Forecast",
+        image: "./images/one-week.png",
+        link: "./forecasts/weeklyForecast.html"
+    },
+    {
+        title: "Next Two Weeks",
+        image: "./images/two-weeks.png",
+        link: "./forecasts/twoWeekForecast.html"
+    }
+];
 
-function RenderHome() {
+function renderHome() {
     const homeContainer = document.getElementById("homeContainer");
 
     homeLayout.forEach((cardData) => {
-        const currentCard = RenderCard(cardData);
+        const currentCard = renderCard(cardData);
         homeContainer.appendChild(currentCard);
     });
 }
 
-function RenderCard(cardData) {
+function renderCard(cardData) {
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("weatherCard");
     cardContainer.addEventListener("click", (event) => {
@@ -28,4 +44,4 @@ function RenderCard(cardData) {
     return cardContainer;
 }
 
-RenderHome();
+renderHome();

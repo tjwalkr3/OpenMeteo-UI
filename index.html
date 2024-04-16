@@ -14,25 +14,31 @@
 </head>
 <body>
     <h1 class="header">OpenMeteo Weather</h1>
-    <button id="openOverlay">Add Location</button>
-
-    <div id="locationSearchOverlay">
-        <span id="closeOverlay" title="Close Overlay">×</span>
-        <div class="overlayContainer">
-            <form id="locationForm">
-                <input type="text" placeholder="Search for a Location..." name="location" id="location">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-            <div class="scrollProtect">
-                <div id="searchResults">
     
+    <div id="contentContainer">
+        <div id="locationSearchOverlay">
+            <span id="closeOverlay" title="Close Overlay">×</span>
+            <div class="overlayContainer">
+                <form id="locationForm">
+                    <input type="text" placeholder="Search for a Location..." name="location" id="location">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <div class="scrollProtect">
+                    <div id="searchResults">
+                        <!-- Search Results go here -->
+                    </div>
                 </div>
             </div>
         </div>
+    
+        <div class="locationContainer">
+            <button id="openOverlay">Add Location</button>
+        </div>
+        
+        <div id="homeContainer">
+            <!-- Home screen cards go here -->
+        </div>
     </div>
     
-    <div id="homeContainer">
-
-    </div>
 </body>
 </html>

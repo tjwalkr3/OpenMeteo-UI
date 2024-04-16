@@ -6,7 +6,7 @@
 
 ## April 6 - Week 1
 - [x] Create base html on the homepage, and the shared layout for the granularity pages. 
-- [ ] Create form
+- [x] Create form
 - [x] Add images, lists, figures
 - [x] Create css flex layout with transitions, color, margin, padding, etc.
 

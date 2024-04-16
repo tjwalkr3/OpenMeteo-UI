@@ -1,4 +1,4 @@
-export async function SearchLocation(locationString, numOfResults) 
+export async function searchLocation(locationString, numOfResults) 
 {
     var locationResults = [];
     
@@ -21,8 +21,9 @@ export async function SearchLocation(locationString, numOfResults)
                             elevation: result.elevation,
                             readableName: `${result.name}, ${result.admin1}`
                         };
-                        console.log(locationResult);
-                        locationResults.push(locationResult);
+                        if (!locationResults.some((location) => location.readableName === locationResult.readableName)) { // filter for duplicate locations
+                            locationResults.push(locationResult);
+                        }
                     }
                 });
             }

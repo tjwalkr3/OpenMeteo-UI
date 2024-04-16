@@ -1,8 +1,10 @@
-import { SearchLocation } from "../svc/location-query.js"; 
+import { searchLocation } from "../svc/location-query.js";
+import { getLocations, addLocation } from "../domain/location-domain.js";
+import { renderLocations } from "./location-ui.js";
 
 function setupOpenButton() {
     const openButton = document.getElementById("openOverlay");
-
+    console.log("I got here!");
     openButton.addEventListener("click", (event) => {
         const searchOverlay = document.getElementById("locationSearchOverlay");
         searchOverlay.style.display = "block";
@@ -25,13 +27,13 @@ function setupLocationForm() {
     locationForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const locationField = document.getElementById("location");
-        const possibleLocations = (await SearchLocation(locationField.value, 100));
-        RenderLocations(possibleLocations);
+        const possibleLocations = (await searchLocation(locationField.value, 100));
+        renderLocationResults(possibleLocations);
     });
 }
 
 // print error result if the list is empty
-function RenderLocations(possibleLocations) {
+function renderLocationResults(possibleLocations) {
     const searchResultList = document.getElementById("searchResults");
     searchResultList.replaceChildren();
 
@@ -43,6 +45,12 @@ function RenderLocations(possibleLocations) {
     } else {
         possibleLocations.forEach((location) => {
             const locationItem = document.createElement("div");
+            locationItem.addEventListener("click", (event) => {
+                addLocation(location);
+                const locations = getLocations();
+                renderLocations(locations);
+            });
+
             locationItem.innerText = location.readableName;
             locationItem.setAttribute("data-id", location.id);
             locationItem.classList.add("searchItem");
