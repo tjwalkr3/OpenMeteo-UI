@@ -46,64 +46,6 @@ body, html {
     top: 0;
 }
 
-.locationContainer {
-    width: min(85%, 40em);
-    min-height: 10em;
-    padding: 1em;
-    border-radius: 1em;
-    background-color: var(--foreground);
-}
-
-#homeContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 10%;
-    row-gap: 2em;
-    align-items: center;
-    width: 100%;
-}
-
-.weatherCard {
-    box-sizing: border-box;
-    max-width: 20em;
-    display: inline-block;
-    padding: 1em;
-    color: var(--text);
-    background-color: var(--foreground);
-    font-size: 1em;
-    transition: 0.3s;
-    border-radius: 1em;
-    border: 3px solid transparent;
-
-    img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-.weatherCard:hover {
-    background-color: var(--hoveredForeground);
-    border: 3px solid var(--text);
-}
-
-/* button to open location search overlay */
-#openOverlay {
-    background: var(--foreground);
-    color: var(--text);
-    border: 1px solid black;
-    padding: 0.5em 0.75em;
-    font-size: 1.2em;
-    font-weight: 700;
-    border-radius: 0.5em;
-    cursor: pointer;
-}
-
-#openOverlay:hover {
-    background: var(--hoveredForeground);
-}
-
 /* css for search overlay */
 #locationSearchOverlay {
     height: 100%;
@@ -208,3 +150,57 @@ body, html {
     margin-right: 1em;
     border-radius: 0.5em;
 }
+
+/* css for stuff inside location container */
+#locationContainer {
+    width: min(85%, 40em);
+    min-height: 10em;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5em;
+}
+
+#openOverlay {
+    background: var(--foreground);
+    color: var(--text);
+    border: 1px solid black;
+    padding: 0.5em 0.75em;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+#openOverlay:hover {
+    background: var(--hoveredForeground);
+}
+
+/* css for location elements that have buttons */
+.locationElement {
+    display: flex;
+    flex-direction: row;
+    border-radius: 1em;
+    border: 1px solid black;
+    margin: 0.75em;
+}
+
+.locationTitle {
+    font-size: 1.5em;
+}
+
+.forecastButton {
+    background-color: var(--background);
+    border: none;
+    color: var(--foreground);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2em;
+    margin: 0.25em 0.125em;
+    cursor: pointer;
+}
+

@@ -12,7 +12,6 @@ export async function searchLocation(locationString, numOfResults)
         .then((responseData) => {
             if (responseData.results !== undefined && responseData.results.length > 0) {
                 responseData.results.forEach((result) => {
-                    console.log(result);
                     if (result.country_code === "US") { // Only accept locations in the USA
                         const locationResult = {
                             id: result.id,
