@@ -153,23 +153,22 @@ body, html {
 
 /* css for stuff inside location container */
 #locationContainer {
-    width: min(85%, 40em);
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    width: min(90%, 50em);
     min-height: 10em;
     padding: 1em;
     border-radius: 1em;
     background-color: var(--foreground);
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.5em;
 }
 
 #openOverlay {
-    background: var(--foreground);
-    color: var(--text);
+    background: var(--background);
+    color: var(--foreground);
     border: 1px solid black;
     padding: 0.5em 0.75em;
     font-size: 1.2em;
-    font-weight: 700;
     border-radius: 0.5em;
     cursor: pointer;
 }
@@ -181,26 +180,33 @@ body, html {
 /* css for location elements that have buttons */
 .locationElement {
     display: flex;
-    flex-direction: row;
-    border-radius: 1em;
-    border: 1px solid black;
-    margin: 0.75em;
+    flex-direction: column;
+    row-gap: 0.5em;
+    border-radius: 0.5em;
+    border: 2px solid black;
+    padding: 0.3em 1em;
 }
 
 .locationTitle {
     font-size: 1.5em;
 }
 
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.5em;
+    padding-bottom: 0.5em;
+}
+
 .forecastButton {
     background-color: var(--background);
-    border: none;
+    border-radius: 0.5em;
     color: var(--foreground);
-    padding: 15px 32px;
+    padding: 0.5em 0.75em;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 1.2em;
-    margin: 0.25em 0.125em;
     cursor: pointer;
 }
 

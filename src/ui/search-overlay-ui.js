@@ -46,9 +46,16 @@ function renderLocationResults(possibleLocations) {
         possibleLocations.forEach((location) => {
             const locationItem = document.createElement("div");
             locationItem.addEventListener("click", (event) => {
+                // add the location to the list to be rendered
                 addLocation(location);
                 const locations = getLocations();
                 renderLocations(locations);
+
+                // close the search overlay
+                const searchOverlay = document.getElementById("locationSearchOverlay");
+                searchOverlay.style.display = "none";
+                document.getElementById("searchResults").replaceChildren();
+                document.getElementById("location").value = "";
             });
 
             locationItem.innerText = location.readableName;
