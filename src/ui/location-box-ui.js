@@ -23,29 +23,33 @@ function createLocationElement(location) {
     titleElement.innerText = location.readableName;
     locationElement.appendChild(titleElement);
 
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("buttonContainer");
+    locationElement.appendChild(buttonContainer);
+
     const dailyButtonLink = document.createElement("a");
     dailyButtonLink.setAttribute("href", "./forecasts/dailyForecast.html"); // edit link for template
     const dailyButton = document.createElement("button");
-    dailyButton.innerText = "";
+    dailyButton.innerText = "Daily";
     dailyButton.classList.add("forecastButton");
     dailyButtonLink.appendChild(dailyButton);
-    locationElement.appendChild(dailyButtonLink);
+    buttonContainer.appendChild(dailyButtonLink);
 
     const weeklyButtonLink = document.createElement("a");
     weeklyButtonLink.setAttribute("href", "./forecasts/weeklyForecast.html"); // edit link for template
     const weeklyButton = document.createElement("button");
-    weeklyButton.innerText = "";
+    weeklyButton.innerText = "Weekly";
     weeklyButton.classList.add("forecastButton");
     weeklyButtonLink.appendChild(weeklyButton);
-    locationElement.appendChild(weeklyButtonLink);
+    buttonContainer.appendChild(weeklyButtonLink);
 
     const twoWeekButtonLink = document.createElement("a");
     twoWeekButtonLink.setAttribute("href", "./forecasts/twoWeekForecast.html"); // edit link for template
     const twoWeekButton = document.createElement("button");
-    twoWeekButton.innerText = "";
+    twoWeekButton.innerText = "2 Week";
     twoWeekButton.classList.add("forecastButton");
     twoWeekButtonLink.appendChild(twoWeekButton);
-    locationElement.appendChild(twoWeekButtonLink);
+    buttonContainer.appendChild(twoWeekButtonLink);
 
     return locationElement;
 }
