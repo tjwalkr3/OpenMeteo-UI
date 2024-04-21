@@ -16,6 +16,7 @@ export function renderLocations(locations) {
 function createLocationElement(location) {
     const locationElement = document.createElement("div");
     locationElement.classList.add("locationElement");
+    locationElement.setAttribute("draggable", "true");
 
     const titleElement = document.createElement("div");
     titleElement.classList.add("locationTitle");
