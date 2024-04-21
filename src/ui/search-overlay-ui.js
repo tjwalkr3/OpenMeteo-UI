@@ -4,7 +4,6 @@ import { renderLocations } from "./location-box-ui.js";
 
 function setupOpenButton() {
     const openButton = document.getElementById("openOverlay");
-    console.log("I got here!");
     openButton.addEventListener("click", (event) => {
         const searchOverlay = document.getElementById("locationSearchOverlay");
         searchOverlay.style.display = "block";

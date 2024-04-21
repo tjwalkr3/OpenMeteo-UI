@@ -175,7 +175,7 @@ body, html {
     background-color: var(--foreground);
     display: flex;
     flex-direction: column;
-    row-gap: 0.5em;
+    row-gap: 1.5em;
 
     p {
         text-align: center;
@@ -206,7 +206,7 @@ body, html {
     flex-direction: column;
     row-gap: 0.5em;
     border-radius: 0.5em;
-    border: 2px solid black;
+    border: 1px solid black;
     padding: 0.3em 1em;
 }
 
@@ -225,7 +225,7 @@ body, html {
     background-color: var(--background);
     border-radius: 0.5em;
     color: var(--foreground);
-    padding: 0.5em 0.75em;
+    padding: 0.3em 0.6em;
     text-align: center;
     text-decoration: none;
     display: inline-block;
