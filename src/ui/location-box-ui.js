@@ -4,9 +4,16 @@ import { getData, clearData } from "../svc/local-storage-service.js"
 // Renders the locations the user selects from the search menu
 export function renderLocations(locations) {
     const locationContainer = document.getElementById("locationContainer");
-    for (const child of locationContainer.childNodes) {
-        if (child.id !== "openOverlay") child.remove();
-    }
+    locationContainer.replaceChildren();
+    
+    const openOverlay = document.createElement("button");
+    openOverlay.addEventListener("click", (event) => {
+        const searchOverlay = document.getElementById("locationSearchOverlay");
+        searchOverlay.style.display = "block";
+    });
+    openOverlay.innerText = "Add Location";
+    openOverlay.id = "openOverlay";
+    locationContainer.appendChild(openOverlay);
 
     locations.forEach((location) => {
         const locationElement = createLocationElement(location);
@@ -16,13 +23,13 @@ export function renderLocations(locations) {
 
 export function renderFavorites(favorites) {
     const favoritesContainer = document.getElementById("favoritesContainer");
-    for (const child of favoritesContainer.childNodes) {
-        if (child.id !== "backgroundText") child.remove();
-    }
+    favoritesContainer.replaceChildren();
+    
     if (favorites.length === 0) {
-        document.getElementById("backgroundText").style.display = "default";
-    } else {
-        document.getElementById("backgroundText").style.display = "none";
+        const openOverlay = document.createElement("p");
+        openOverlay.innerText = "Drag Here to Add To Favorites";
+        openOverlay.id = "backgroundText";
+        favoritesContainer.appendChild(openOverlay);
     }
 
     favorites.forEach((location) => {
@@ -108,9 +115,6 @@ function setupFavoritesContainer() {
     });
 
     favoritesContainer.addEventListener("drop", (event) => {
-        console.log(getLocations());
-        console.log(getFavorites());
-
         const locationId = event.dataTransfer.getData("text/id");
         addToFavorites(locationId);
 
@@ -119,10 +123,6 @@ function setupFavoritesContainer() {
 
         const newFavoritesList = getFavorites();
         renderFavorites(newFavoritesList);
-
-        console.log(getLocations());
-        console.log(getFavorites());
-        console.log(locationId);
     })
 }
 
@@ -131,5 +131,7 @@ setupFavoritesContainer();
 const localStorageFavorites = getData();
 if (localStorageFavorites) {
     setFavorites(localStorageFavorites);
-    renderFavorites(getFavorites());
 }
+
+renderLocations(getLocations());
+renderFavorites(getFavorites());

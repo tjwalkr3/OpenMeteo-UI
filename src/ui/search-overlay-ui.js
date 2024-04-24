@@ -2,14 +2,6 @@ import { searchLocation } from "../svc/location-query.js";
 import { getLocations, addLocation } from "../domain/location-domain.js";
 import { renderLocations } from "./location-box-ui.js";
 
-function setupOpenButton() {
-    const openButton = document.getElementById("openOverlay");
-    openButton.addEventListener("click", (event) => {
-        const searchOverlay = document.getElementById("locationSearchOverlay");
-        searchOverlay.style.display = "block";
-    });
-}
-
 function setupCloseButton() {
     const closeButton = document.getElementById("closeOverlay");
 
@@ -65,6 +57,5 @@ function renderLocationResults(possibleLocations) {
     }
 }
 
-setupOpenButton();
 setupCloseButton();
 setupLocationForm();

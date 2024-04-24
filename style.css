@@ -187,17 +187,18 @@ body, html {
 }
 
 #openOverlay {
-    background: var(--background);
-    color: var(--foreground);
-    border: 1px solid black;
-    padding: 0.5em 0.75em;
-    font-size: 1.2em;
+    background-color: var(--foreground);
+    color: var(--background);
+    border: 2px solid var(--background);
+    padding: 0.3em 0.75em;
+    font-size: 1.5em;
+    font-weight: 700;
     border-radius: 0.5em;
     cursor: pointer;
 }
 
 #openOverlay:hover {
-    background: var(--hoveredForeground);
+    background-color: var(--hoveredForeground);
 }
 
 /* css for location elements that have buttons */
