@@ -233,3 +233,11 @@ body, html {
     cursor: pointer;
 }
 
+.removeLocationButton {
+    float: right;
+    font-size: 3em;
+    cursor: pointer;
+    color: var(--error);
+    padding-top: 0.33em;
+    line-height: 0;
+}

@@ -1,4 +1,5 @@
-import {getLocations, getFavorites, addToFavorites, removeLocation} from "../domain/location-domain.js";
+import {getLocations, getFavorites, addToFavorites, setFavorites, removeLocation} from "../domain/location-domain.js";
+import { getData, clearData } from "../svc/local-storage-service.js"
 
 // Renders the locations the user selects from the search menu
 export function renderLocations(locations) {
@@ -44,7 +45,20 @@ function createLocationElement(location) {
     const titleElement = document.createElement("div");
     titleElement.classList.add("locationTitle");
     titleElement.innerText = location.readableName;
+    titleElement.style.display = "inline-block";
     locationElement.appendChild(titleElement);
+
+    // add removal button here
+    const removalButton = document.createElement("div");
+    removalButton.addEventListener("click", (event) => {
+        removeLocation(location.id);
+        renderFavorites(getFavorites());
+        renderLocations(getLocations());
+    });
+    removalButton.setAttribute("title", "remove location");
+    removalButton.classList.add("removeLocationButton");
+    removalButton.innerText = "×";
+    titleElement.appendChild(removalButton);
 
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("buttonContainer");
@@ -73,8 +87,6 @@ function createLocationElement(location) {
     twoWeekButton.classList.add("forecastButton");
     twoWeekButtonLink.appendChild(twoWeekButton);
     buttonContainer.appendChild(twoWeekButtonLink);
-
-    // add removal button here
 
     return locationElement;
 }
@@ -115,3 +127,9 @@ function setupFavoritesContainer() {
 }
 
 setupFavoritesContainer();
+
+const localStorageFavorites = getData();
+if (localStorageFavorites) {
+    setFavorites(localStorageFavorites);
+    renderFavorites(getFavorites());
+}
