@@ -17,7 +17,7 @@ export function getFavorites() {
 }
 
 export function addLocation(newLocation) {
-    if (!locations.find((location) => location.id === newLocation.id) || !favorites.find((location) => location.id === newLocation.id)) {
+    if (!locations.find((location) => location.id === newLocation.id) && !favorites.find((location) => location.id === newLocation.id)) {
         locations.push(newLocation);
     } else {
         console.log("location already selected");

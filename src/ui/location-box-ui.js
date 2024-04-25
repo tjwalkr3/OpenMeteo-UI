@@ -72,7 +72,7 @@ function createLocationElement(location) {
     locationElement.appendChild(buttonContainer);
 
     const dailyButtonLink = document.createElement("a");
-    dailyButtonLink.setAttribute("href", "./forecasts/dailyForecast.html"); // edit link for template
+    dailyButtonLink.setAttribute("href", `./forecasts/dailyForecast.html?latitude=${location.latitude}&longitude=${location.longitude}&name=${location.readableName}`);
     const dailyButton = document.createElement("button");
     dailyButton.innerText = "Daily";
     dailyButton.classList.add("forecastButton");
@@ -80,7 +80,7 @@ function createLocationElement(location) {
     buttonContainer.appendChild(dailyButtonLink);
 
     const weeklyButtonLink = document.createElement("a");
-    weeklyButtonLink.setAttribute("href", "./forecasts/weeklyForecast.html"); // edit link for template
+    weeklyButtonLink.setAttribute("href", `./forecasts/weeklyForecast.html?latitude=${location.latitude}&longitude=${location.longitude}&name=${location.readableName}`);
     const weeklyButton = document.createElement("button");
     weeklyButton.innerText = "Weekly";
     weeklyButton.classList.add("forecastButton");
@@ -88,7 +88,7 @@ function createLocationElement(location) {
     buttonContainer.appendChild(weeklyButtonLink);
 
     const twoWeekButtonLink = document.createElement("a");
-    twoWeekButtonLink.setAttribute("href", "./forecasts/twoWeekForecast.html"); // edit link for template
+    twoWeekButtonLink.setAttribute("href", `./forecasts/twoWeekForecast.html?latitude=${location.latitude}&longitude=${location.longitude}&name=${location.readableName}`);
     const twoWeekButton = document.createElement("button");
     twoWeekButton.innerText = "2 Week";
     twoWeekButton.classList.add("forecastButton");
@@ -103,18 +103,19 @@ function setupFavoritesContainer() {
 
     favoritesContainer.addEventListener("dragover", (event) => {
         event.preventDefault();
-        //cartElement.classList.add("draggingOverCart"); // allow hover effects to work over children of container
+        favoritesContainer.classList.add("draggingOverFaves"); // allow hover effects to work over children of container
     });
 
     favoritesContainer.addEventListener("dragenter", (event) => {
-        //cartElement.classList.add("draggingOverCart");
+        favoritesContainer.classList.add("draggingOverFaves");
     });
 
     favoritesContainer.addEventListener("dragleave", (event) => {
-        //cartElement.classList.remove("draggingOverCart");
+        favoritesContainer.classList.remove("draggingOverFaves");
     });
 
     favoritesContainer.addEventListener("drop", (event) => {
+        favoritesContainer.classList.remove("draggingOverFaves");
         const locationId = event.dataTransfer.getData("text/id");
         addToFavorites(locationId);
 
