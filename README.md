@@ -11,15 +11,15 @@
 - [x] Create css flex layout with transitions, color, margin, padding, etc.
 
 ## April 13 - Week 2
-- [ ] Get service section working to get weather data using JS. 
-- [ ] Get at least one forecast granularity working.
-- [ ] Be able to render a forecast using JS.
-- [ ] Save weather data to local storage (to avoid redundant requests). 
+- [x] Get service section working to get weather data using JS. 
+- [x] Get at least one forecast granularity working.
+- [x] Be able to render a forecast using JS.
+- [x] Save weather data to local storage (to avoid redundant requests). 
 
 ## April 20 - Week 3
-- [ ] use drag-and drop in a location picker (maybe)
-- [ ] polish up the look and feel of the website
+- [x] use drag-and drop in a location picker (maybe)
+- [x] polish up the look and feel of the website
 - [ ] upload website to static host
 
 ## April 27 - Last day of class and due date for final project
-- [ ] Turn in the finished project
+- [x] Turn in the finished project
