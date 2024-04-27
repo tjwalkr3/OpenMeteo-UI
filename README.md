@@ -19,7 +19,7 @@
 ## April 20 - Week 3
 - [x] use drag-and drop in a location picker (maybe)
 - [x] polish up the look and feel of the website
-- [ ] upload website to static host
+- [x] upload website to static host
 
 ## April 27 - Last day of class and due date for final project
 - [x] Turn in the finished project
