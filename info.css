@@ -1,0 +1,45 @@
+:root {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+
+    /* main color scheme */
+    /* https://coolors.co/222831-9bdbdf-e6e6e6-31363f */
+    --background: #222831;
+    --highlights: #9bdbdf;
+    --foreground: #eeeeee;
+    --text: #282c33;
+}
+
+.centerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    color: var(--highlights);
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 50em);
+}
+
+.infoContainer img {
+    width: 20em;
+    height: auto;
+}
+
+.infoContainer figure {
+    width: 20em;
+    height: auto;
+    margin-left: 0;
+}
+
+.infoContainer h2 {
+    font-size: 1.8em
+}
+
+.infoContainer figcaption {
+    font-size: 0.9em;
+    font-style: italic;
+}

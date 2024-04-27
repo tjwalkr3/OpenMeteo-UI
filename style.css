@@ -35,16 +35,27 @@ body, html {
     row-gap: 2em;
 }
 
-.topHeader {
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid var(--highlights);
+    margin-bottom: 2em;
+}
+
+.headerImage {
+    width: 3em;
+    margin: 1em 1em 0 1em;
+}
+
+.headerText {
     text-align: center;
     font-size: 2em;
     font-weight: 700;
     color: var(--highlights);
-    background-color: var(--background);
-    border-bottom: 2px solid var(--highlights);
     width: 100%;
-    margin: 0 0 1em 0;
     top: 0;
+    margin: 0.5em 0 0 0;
+    padding: 0;
 }
 
 .sectionContainer {
