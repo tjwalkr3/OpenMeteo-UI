@@ -78,7 +78,7 @@ function renderHeader() {
     };
 
     const weatherHeader = document.getElementById("weatherHeader");
-    weatherHeader.innerText = `One Week Forecast\n${name} - ${date.toLocaleDateString('en-US', options)}`;
+    weatherHeader.innerText = `One Week Forecast\n${name} on ${date.toLocaleDateString('en-US', options)}`;
 }
 
 renderHeader();

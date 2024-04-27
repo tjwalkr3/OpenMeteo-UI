@@ -1,4 +1,4 @@
-import {getLocations, getFavorites, addToFavorites, setFavorites, removeLocation} from "../domain/location-domain.js";
+import {getLocations, getFavorites, addToFavorites, setFavorites, removeLocation, addLocation} from "../domain/location-domain.js";
 import { getData, clearData } from "../svc/local-storage-service.js"
 
 // Renders the locations the user selects from the search menu
@@ -6,19 +6,47 @@ export function renderLocations(locations) {
     const locationContainer = document.getElementById("locationContainer");
     locationContainer.replaceChildren();
     
+    // Add the current location to the location list
     const openOverlay = document.createElement("button");
     openOverlay.addEventListener("click", (event) => {
+        addGeoLocation();
+    });
+    openOverlay.innerText = "Add Current Location";
+    openOverlay.id = "openOverlay";
+    locationContainer.appendChild(openOverlay);
+
+    // Add a new location to the location list
+    const addCurrentLocation = document.createElement("button");
+    addCurrentLocation.addEventListener("click", (event) => {
         const searchOverlay = document.getElementById("locationSearchOverlay");
         searchOverlay.style.display = "block";
     });
-    openOverlay.innerText = "Add Location";
-    openOverlay.id = "openOverlay";
-    locationContainer.appendChild(openOverlay);
+    addCurrentLocation.innerText = "Add Location";
+    addCurrentLocation.id = "openOverlay";
+    locationContainer.appendChild(addCurrentLocation);
 
     locations.forEach((location) => {
         const locationElement = createLocationElement(location);
         locationContainer.appendChild(locationElement);
     });
+}
+
+function addGeoLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(makeEntryForLocation);
+    }
+}
+
+function makeEntryForLocation(position) {
+    var location =  {
+        id: 0,
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        elevation: 0,
+        readableName: `Current Location: (${position.coords.latitude.toFixed(3)}, ${position.coords.longitude.toFixed(3)})`
+    };
+    addLocation(location);
+    renderLocations(getLocations());
 }
 
 export function renderFavorites(favorites) {
