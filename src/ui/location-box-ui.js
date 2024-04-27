@@ -21,7 +21,7 @@ export function renderLocations(locations) {
         const searchOverlay = document.getElementById("locationSearchOverlay");
         searchOverlay.style.display = "block";
     });
-    addCurrentLocation.innerText = "Add Location";
+    addCurrentLocation.innerText = "Search Locations";
     addCurrentLocation.id = "openOverlay";
     locationContainer.appendChild(addCurrentLocation);
 
