@@ -13,6 +13,7 @@
     --error: #c93333;
     --hoveredError: #ee3c3c;
     --hoveredForeground: #bebebe;
+    --lightHover: #d4d4d4;
     --hoveredHighlights: #87bcc0;
     --textHint: #979797;
 }
@@ -162,6 +163,10 @@ body, html {
     border-radius: 0.5em;
     text-align: left;
     padding: 0.3em 1em;
+}
+
+.searchItem:nth-child(even) {
+    background-color: var(--lightHover);
 }
 
 .searchItem:hover {
