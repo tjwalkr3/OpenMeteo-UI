@@ -9,7 +9,7 @@ function setupCloseButton() {
         const searchOverlay = document.getElementById("locationSearchOverlay");
         searchOverlay.style.display = "none";
         document.getElementById("searchResults").replaceChildren();
-        document.getElementById("location").value = "";
+        document.getElementById("locationForm").reset();
     });
 }
 
@@ -46,7 +46,7 @@ function renderLocationResults(possibleLocations) {
                 const searchOverlay = document.getElementById("locationSearchOverlay");
                 searchOverlay.style.display = "none";
                 document.getElementById("searchResults").replaceChildren();
-                document.getElementById("location").value = "";
+                document.getElementById("locationForm").reset();
             });
 
             locationItem.innerText = location.readableName;
